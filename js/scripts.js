@@ -1,10 +1,40 @@
-const arrChoice = ["Rock", "Paper", "Scissors"];
+const arrChoice = ["rock", "paper", "scissors"];
 
 let round = 1;
 let playerScore = 0;
 let compScore = 0;
+let tie = 0;
 let compChoice = "";
 let playerChoice = "";
+
+//check who won
+function checkWinner(){
+    if(playerChoice === compChoice){
+        tie++;
+    }
+    else if (playerChoice === "rock"){
+        if (compChoice === "scissors"){
+            playerScore++;
+        }else{
+            compScore++;
+        }
+    }
+    else if(playerChoice === "paper"){
+        if (compChoice === "rock"){
+            playerScore++;
+        }else{
+            compScore++;
+        }
+    }
+    else{
+        if(compChoice === "paper"){
+            playerScore++;
+        }else{
+            compScore++;
+        }
+    }
+    console.log("computer: ", compScore, " | player: ", playerScore);
+}
 //ask the user to choose an option
 function getPlayerChoice(){
     //ask player to choose
@@ -57,7 +87,7 @@ function startRound(){
         //player chooses
         getPlayerChoice();
         //check who wins
-        addScore();
+        checkWinner();
         //display score
 
 }
