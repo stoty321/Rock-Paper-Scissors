@@ -5,12 +5,25 @@ let playerScore = 0;
 let compScore = 0;
 let compChoice = "";
 let playerChoice = "";
+//ask the user to choose an option
+function getPlayerChoice(){
+    //ask player to choose
+    let choice = prompt("choose what you want to play by typing: 'Rock' 'Paper' or 'Scissors' ");
+    //convert their choice to lower case
+    choice = choice.toLowerCase();
 
+    //check if valid
+    if (choice === "rock" || choice === "paper" || choice === "scissors"){
+        playerChoice = choice;
+    }else{
+        console.log("Invalid input. Choose again");
+        getPlayerChoice();
+    }   
+}
 //generate random choice
 function randomChoice(arr) {
     let index = Math.floor(Math.random() * arr.length);
     let choice = arr[index]
-    console.log(choice);
     return choice;
 }
 
@@ -42,7 +55,7 @@ function startRound(){
         //computer chooses
         getCompChoice();
         //player chooses
-        playerChoice();
+        getPlayerChoice();
         //check who wins
         addScore();
         //display score
