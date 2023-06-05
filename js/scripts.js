@@ -8,12 +8,13 @@ let compChoice = "";
 let playerChoice = "";
 
 function displayScore(){
-    console.log("computer: ", compScore, " | player: ", playerScore);
+    console.log("computer: ", compScore, " | player: ", playerScore, " | Tie: ", tie);
 }
 //check who won
 function checkWinner(){
     if(playerChoice === compChoice){
         tie++;
+        console.log("It was a tie");
     }
     else if (playerChoice === "rock"){
         if (compChoice === "scissors"){
@@ -44,6 +45,7 @@ function checkWinner(){
     }
     
     displayScore();
+    game();
 }
 //ask the user to choose an option
 function getPlayerChoice(){
@@ -105,8 +107,8 @@ function startRound(){
 function game(){
     //show the round number
     console.log("Round: " + round);
-    //check if the round number is less than 5 and each player can still win
-    if(playerScore <= 3 || compScore <= 3){
+    //check if each player can still win
+    if(playerScore < 3 && compScore < 3){
         startRound();
     }
     
