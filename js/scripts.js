@@ -7,6 +7,14 @@ let tie = 0;
 let compChoice = "";
 let playerChoice = "";
 
+
+function displyWinner(){
+    if(playerScore > compScore){
+        console.log("YOU ARE THE WINNER!");
+    }else{
+        console.log("YOU LOSE");
+    }
+}
 function displayScore(){
     console.log("computer: ", compScore, " | player: ", playerScore, " | Tie: ", tie);
 }
@@ -45,6 +53,7 @@ function checkWinner(){
     }
     
     displayScore();
+    round++;
     game();
 }
 //ask the user to choose an option
@@ -113,7 +122,7 @@ function game(){
     }
     
     //display winner
-
+    displyWinner();
     //ask for another game
     playAgain();
 }
